@@ -22,6 +22,115 @@ body {
     background: #ffffff;
     transition: top 0.3s;
 }
+.tithe-button {
+    background: linear-gradient(135deg, #6a11cb, #2575fc);
+    color: white;
+    border: none;
+    padding: 14px 28px;
+    font-size: 16px;
+    border-radius: 12px;
+    cursor: pointer;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+    transition: all 0.3s ease;
+    position: relative;
+    top: 8vh;
+    z-index: 100;
+}
+
+.tithe-button:hover {
+    background: linear-gradient(135deg, #5e0baf, #1e63e8);
+    transform: scale(1.05);
+    box-shadow: 0 6px 16px rgba(0,0,0,0.25);
+}
+#paymentContainer {
+    position: relative;
+  }
+
+  #paymentForm {
+    display: none;
+    margin-top: 20px;
+    padding: 15px;
+    background-color: #f3f3f3;
+    border-radius: 10px;
+    max-width: 400px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    position: absolute;
+    z-index: 1000;
+  }
+
+  #paymentForm select,
+  #paymentForm input,
+  #paymentForm button {
+    display: block;
+    margin: 10px 0;
+    padding: 10px;
+    width: 100%;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    font-size: 14px;
+  }
+
+  #closeForm {
+    background: crimson;
+    color: white;
+    border: none;
+    padding: 8px;
+    width: 100%;
+    cursor: pointer;
+  }
+
+  /* Responsive for screens smaller than 600px */
+  @media (max-width: 600px) {
+    #paymentForm {
+      width: 90%;
+      left: 5%;
+      right: 5%;
+    }
+
+    .tithe-button {
+      width: 100%;
+      font-size: 9px;
+      padding: 0;
+      max-height: 45px;
+    }
+    #paymentForm select,
+  #paymentForm input,
+  #paymentForm button {
+    width: 80%;
+    font-size: 14px;
+  }
+
+  #closeForm {
+    padding: 8px;
+    width: 100%;
+    max-width: 90px;
+    cursor: pointer;
+    position: relative;
+    left: 30%;
+  }
+  }
+
+/* Extra small devices (phones, portrait) */
+@media (max-width: 480px) {
+    .tithe-button {
+      font-size: 14px;
+      padding: 10px 20px;
+      width: 100%; /* Full width on very small screens */
+      border-radius: 10px;
+    }
+  }
+  
+  /* Small to medium devices (phones to tablets) */
+  @media (max-width: 600px) {
+    .tithe-button {
+      font-size: 15px;
+      width: 50%;
+      border-radius: 10px;
+      position: relative;
+      left: 25%;
+    }
+  }
+  
 .container {
     padding: 20px 5%;
     text-align: center;
@@ -137,7 +246,7 @@ video {
     
     .video-container {
         height: 300px;
-        max-width: 45%;
+        max-width: 40%;
         margin-left: 6vw;
         margin-top: 12vh;
     }
@@ -230,8 +339,8 @@ video {
       }
       #hup{
         color: #121e63;
-        font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-        font-size: 1rem;
+        font-family: Georgia, 'Times New Roman', Times, serif;
+        font-size: .8rem;
       }
       
       @media (max-width: 600px) {
@@ -240,6 +349,10 @@ video {
         }
         .navbar span {
           font-size: 1.1rem;
+        }
+        .testimony-container{
+            position: relative;
+            top: -32vh;
         }
       }
       
@@ -375,9 +488,13 @@ a:hover::after {
             @media (max-width: 480px) {
                 .section-title {
                     font-size: 1.5rem;
+                    position: relative;
+                    top: 5vh;
                 }
                 .section-description {
                     font-size: 0.9rem;
+                    position: relative;
+                    top: 5vh;
                 }
             }
     
@@ -391,7 +508,7 @@ a:hover::after {
             
             .class-tab {
                 padding: 10px 15px;
-                background: #ffb514;
+                background: #ff7214;
                 color: rgb(255, 255, 255);
                 border-radius: 5px;
                 cursor: pointer;
@@ -435,7 +552,7 @@ a:hover::after {
             /* Improve tabs on smaller screens */
             @media (max-width: 768px) {
                 .church-growth{
-                    box-shadow: 0 4px 8px #f1e973ef;
+                    box-shadow: 0 4px 8px #eff3f0ef;
             
                 }
                 .class-tabs {
@@ -470,14 +587,24 @@ a:hover::after {
                 .class-tab {
                     flex: 0 0 auto;
                     padding: 10px;
-                    font-size: 14px;
+                    font-size: 10px;
+                    max-height: 8px;
                 }
             
                 .image-section {
                     position: relative;
                     top: -45vh;
                 }
+                .responsive-img {
+                    width: 100%;
+                    min-width: 300px;
+                    height: auto;
+                    position: relative;
+                    top: -9vh;
+                  }
             }
+
+
             #classDesc{
                     display: none;
                 }
@@ -487,7 +614,7 @@ a:hover::after {
                     font-size: 1.4rem;
                     max-width: 340px;
                     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-                    margin-left: -5%;
+                    margin-left: -22%;
                     margin-top: 5vh;
                 }
             
@@ -601,9 +728,19 @@ a:hover::after {
                           max-width: 100%;
                           height: auto;
                         }
+
+                        @media (max-width: 600px) {
+                            .form-container input, .form-container select {
+                                width: auto;
+                            }
+                            .image-section{
+                                margin-top: -20vh;
+                            }
+                         }
+                    
                         
                         
-  .my-text {
+  .my-text, .my-te {
     font-size: 2.4rem;
     line-height: 1.6;
     text-align: center;
@@ -616,6 +753,13 @@ a:hover::after {
     top: 15vh;
     font-family: Georgia, 'Times New Roman', Times, serif;
   }
+
+  @media (max-width: 768px) {
+    .my-tex{
+        position: relative;
+        top: -12vh;
+    }
+  }
   .int{
     border-radius: 12px;
   }
@@ -624,6 +768,7 @@ a:hover::after {
     margin-bottom: 2vh;
   }
   
+
   @media (max-width: 600px) {
     .class-image img {
                width: 220%;
@@ -632,11 +777,12 @@ a:hover::after {
                border-radius: 10px;
                position: relative;
                left: -50.5vw;
+               top: 2vh;
 }
 .cla{
     margin: 0;
     position: relative;
-    top: -15vh;
+    top: -14vh;
 }
 .my-text {
     color: #1f4db1;
@@ -645,7 +791,17 @@ a:hover::after {
     font-family: Georgia, 'Times New Roman', Times, serif;
     margin: 0;
     position: relative;
-    top: -15vh;
+    top: -12vh;
+}
+.my-te {
+    color: #1f4db1;
+    font-weight: 600;
+    font-size: 1.4rem;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    margin: 0;
+    position: relative;
+    top: -16vh;
+    margin-bottom: 5vh;
 }
 
 .join-btn {
@@ -654,12 +810,12 @@ a:hover::after {
         margin-bottom: 2vh;
     }
 #detailDesc{
-        color: #534d4d;
+        color: #12006d;
         font-size: 1.1rem;
         max-width: 360px;
-        margin-top: -4vh;
+        margin-top: -2vh;
         position: relative;
-        left: 17vw;
+        left: 10%;
     }
     .intro-text {
       font-size: .9rem;
@@ -672,13 +828,13 @@ a:hover::after {
         display: block;
     }
     #classTitle{
-        font-size: 1.5rem;
+        font-size: 1.3rem;
         margin-top: 5vh;
         margin-left: -12vw;
         position: relative;
         left: 20vw;
         font-weight: 400;
-        color: #131110;
+        color: #12006d;
     }
     .class-details{
         margin-top: 7vh;
@@ -766,21 +922,37 @@ a:hover::after {
 /* Adjust grid for smaller screens */
 @media (max-width: 600px) {
     .book-grid {
-        grid-template-columns: repeat(3, 1fr); /* Ensures two books per row */
+        grid-template-columns: repeat(5, 1fr); /* Ensures two books per row */
         gap: 0;
+        position: relative;
+        left: 35vw;
     }
+    .book-options a{
+        font-size: .8rem;
+    }
+    .book-options{
+        width: auto;
+    }
+.book-title {
+    font-size: .8rem;
+}
     .book img {
         margin-top: -1vh;
         width: 100%;
+        min-width: 70px;
         max-height: 80px;
+        min-height: 80px;
     }
-    .library{
-        max-height: 175px;
-        overflow-x: scroll;
+    .library {
+        max-height: 210px;
+        overflow-y: hidden;   /* allows vertical scrolling */
+        overflow-x: scroll;   /* hides horizontal scrollbar */
         position: relative;
+        top: -4vh;
     }
+    
 #bk{
-    margin-top: -14vh;
+    margin-top: -19vh;
     font-size: 1.2rem;
     font-family: 'Times New Roman', Times, serif;
 }
@@ -788,6 +960,12 @@ a:hover::after {
         position: absolute;
         display: none;
         flex-direction: column;
+    }
+    .cool img{
+        width: 100%;
+        max-width: 170px;
+        position: relative;
+        top: -10vh;
     }
 }
 
@@ -821,6 +999,12 @@ a:hover::after {
             cursor: pointer;
             font-size: 1.1rem;
         }    
+        @media (max-width: 768px) {
+            .ask-question-section{
+                position: relative;
+                top: -12vh;
+            }
+        }
 
 .enrollment-section {
     position: relative;
@@ -829,7 +1013,6 @@ a:hover::after {
     color: rgb(51, 47, 47);
     margin-top: 50px;
     border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 /* Dark overlay fox r readability */
@@ -851,7 +1034,7 @@ a:hover::after {
 .enrollment-section p, 
 .enrollment-info, 
 .contact-info {
-    font-weight: 600;
+    font-weight: 500;
     position: relative;
     z-index: 2;
 }
@@ -921,15 +1104,15 @@ a:hover::after {
     }
     .enrollment-section h2{
         color: #1a329b;
-        font-size: 1.4rem;
+        font-size: 1.3rem;
     }
     .enrollment-section p{
         font-size: 1.1rem;
-        font-weight: 500;
+        font-weight: 400;
     }
     .enrollment-info ul {
         font-size: 1.2rem;
-        font-weight: 500;
+        font-weight: 400;
     }
     .my-tex{
         color: #0c27a0;
@@ -938,12 +1121,30 @@ a:hover::after {
         margin-top: 5vh;
     }
 }
+@media (max-width: 600px) {
+    .enrollment-section h2, 
+    .enrollment-section p, 
+    .enrollment-info, 
+    .contact-info {
+        position: relative;
+        top: -5vh;
+    }
+    .enrollment-section p{
+        font-size: .9rem;
+    }
+    .enrollment-info{
+        font-size: 1rem;
+        margin-top: -3vh;
+    }
+}
 
     .into-text {
         text-align: center;
         margin: 20px auto;
         max-width: 800px;
         padding: 10px;
+        position: relative;
+        top: -15vh;
     }
 
     .into-text h2 {
@@ -1011,7 +1212,7 @@ a:hover::after {
     @media (max-width: 600px) {
       .invite-container {
         padding: 1.5rem;
-        margin-top: -6vh;
+        margin-top: -22vh;
       }
       .invite-container h2 {
         font-size: 1.5rem;
@@ -1054,7 +1255,7 @@ a:hover::after {
 
 .events-section h2 {
     margin-bottom: 30px;
-    color: #333;
+    color: #1b09be;
 }
 
 .event-list {
@@ -1116,33 +1317,55 @@ a:hover::after {
         position: relative;
         top: -9vh;
     }
+   
+}
+@media (max-width: 600px) {
+    .events-section h2 {
+        position: relative;
+        top: 1vh;
+        margin-bottom: 8vh;
+     }
 }
 
+.my{
+    color: #0c27a0;
+}
+#my{
+    color: #0c27a0;
+}
 /* One column on small screens */
 @media (max-width: 767px) {
     .event-card {
         width: 100%;
+        min-width: 300px;
         position: relative;
         top: -12vh;
     }
     .event-card img {
         width: 100%;
-        min-width: 350px;
+        max-width: 350px;
         position: relative;
-        left: -10vw;
     }
     .events-section {
         margin-top: -6vh;
     }
     .my{
         position: relative;
-        left: -50vw;
+        left: -33%;
         font-weight: 600;
         font-size: 1.3rem;
         top: 9vh;
     }
     #my{
-        font-weight: 500;
-        font-size: 1.3rem;
+        font-weight: 600;
+        font-size: 1rem;
+        position: relative;
     }
+}
+
+@media (max-width: 767px) {
+.events-section{
+    position: relative;
+    top: -19vh;
+  }
 }
